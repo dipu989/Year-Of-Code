@@ -1,36 +1,42 @@
-/* This code is giving wrong answers upon exectuting, will check it again*/
-
 #include<bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-  int test;
-  cin>>test;
-  int count = 0;
-
-  while(test>0)
-  {
-  string s;
+int main(){
+  int t;
+  cin>>t;
   cin.ignore();
-  getline(cin,s);
-  vector<string> v;
-  istringstream iss(s);
-  for(string s;iss>>s;)
-    v.push_back(s);
-  for(int j=0;j<v.size();j++)
+  while(t>0)
   {
-    if(v[j] == "not")
-      count++;
+    string s;
+    getline(cin,s);
+    int count = 0;
+    for(int i = 0;i<s.length();i++)
+    {
+      if(s[i] == ' ')
+        count++;
+    }
+    string array[count+1];
+    stringstream ss(s);
+    int i = 0;
+    while(ss.good() && i< (count+1))
+    {
+      ss>>array[i];
+      ++i;
+    }
+    int fcount = 0;
+    for(int j=0;j<count+1;j++)
+    {
+      if(array[j] == "not"){
+        fcount++;
+      }
+    }
+    if(fcount!=0)
+      cout<<"Real Fancy"<<endl;
+    else
+      cout<<"regularly fancy"<<endl;
+
+    t--;
   }
-  if(count!=0)
-    cout<<"Real Fancy"<<endl;
-  else
-    cout<<"regularly fancy"<<endl;
 
-  count = 0;
-  test--;
-
-}
   return 0;
 }
