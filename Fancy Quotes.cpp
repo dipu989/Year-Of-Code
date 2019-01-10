@@ -18,7 +18,7 @@ int main(){
     string array[count+1];
     stringstream ss(s);
     int i = 0;
-    while(ss.good() && i< (count+1))
+    while(/*ss.good() && */i< (count+1))
     {
       ss>>array[i];
       ++i;
